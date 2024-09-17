@@ -71,19 +71,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include;C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include;$(IncludePath)</IncludePath>
+    <IncludePath>%(AdditionalIncludeDirectories);C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include</IncludePath>
     <LibraryPath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\lib;C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>%(AdditionalIncludeDirectories);C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include</IncludePath>
     <LibraryPath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>%(AdditionalIncludeDirectories);C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include</IncludePath>
     <LibraryPath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>%(AdditionalIncludeDirectories);C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\include</IncludePath>
     <LibraryPath>C:\Users\Schneider\source\repos\MageSurvivor\MageSurvivor\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -147,8 +147,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ackerman.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\fragment.glsl" />
+    <None Include="res\shaders\vertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ackerman.h" />
+    <ClInclude Include="res\shaders\ackerman.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

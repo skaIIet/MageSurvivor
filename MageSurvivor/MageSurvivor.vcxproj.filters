@@ -21,5 +21,24 @@
     <ClCompile Include="glad.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="ackerman.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\vertex.glsl">
+      <Filter>Arquivos de Recurso</Filter>
+    </None>
+    <None Include="res\shaders\fragment.glsl">
+      <Filter>Arquivos de Recurso</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res\shaders\ackerman.h">
+      <Filter>Arquivos de Origem</Filter>
+    </ClInclude>
+    <ClInclude Include="ackerman.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,29 +1,19 @@
-#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "ackerman.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
 int main() {
 
-	// Todo: Load shaders from a file instead of using variables
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"layout (location = 1) in vec3 aColor;\n"
-		"out vec3 ourColor;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(aPos, 1.0);\n"
-		"	ourColor = aColor;\n"
-		"}\0";
-	const char* fragmentShaderSource = "#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"in vec3 ourColor;\n"
-		"void main()\n"
-		"{\n"
-		"   FragColor = vec4(ourColor, 1.0);\n"
-		"}\0";
+	const char* vertexPath = "C:/Users/Schneider/source/repos/MageSurvivor/MageSurvivor/res/shaders/vertex.glsl";
+	const char* fragmentPath = "C:/Users/Schneider/source/repos/MageSurvivor/MageSurvivor/res/shaders/fragment.glsl";
+
+	std::string vertexSourceString = readShaderFile(vertexPath);
+	std::string fragmentSourceString = readShaderFile(fragmentPath);
+	const char* vertexShaderSource = vertexSourceString.c_str();
+	const char* fragmentShaderSource = fragmentSourceString.c_str();
 
 	int width = 1920;
 	int height = 1080;
@@ -62,15 +52,17 @@ int main() {
 	glViewport(0, 0, width, height);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+	unsigned int VAO;
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+
 	unsigned int VBO;
 	glGenBuffers(1, &VBO);
 
 	unsigned int EBO;
 	glGenBuffers(1, &EBO);
 
-	unsigned int VAO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
+	
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -168,3 +160,4 @@ void processInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
 }
+
